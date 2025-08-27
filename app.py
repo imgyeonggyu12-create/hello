@@ -643,7 +643,7 @@ if q is not None:
                 "RN1": (now_weather or {}).get("RN1"), "POP": (pop_weather or {}).get("POP"),
                 "meta": (now_weather or {}).get("meta")
             }
-            status_notes.append("날씨(KMA) OK ✅")
+            status_notes.append("날씨(KMA) OK")
         else:
             status_notes.append("날씨(KMA) 불가 ❌")
     elif use_weather:
