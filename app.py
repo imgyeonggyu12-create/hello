@@ -531,7 +531,7 @@ with st.sidebar:
         lon = st.number_input("경도", value=127.462127, format="%.6f", help="날씨 정보를 가져올 위치의 경도")
         city_name = "수동 입력 위치"
     
-    st.text(f"현재 선택된 날씨 조회 위치: {city_name}")
+
 
 
     # 농사로 툴 옵션 (질문 입력 전 선택)
