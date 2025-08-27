@@ -508,7 +508,7 @@ with st.sidebar:
     # 날씨 툴 옵션
     st.markdown("---")
     st.markdown("**📍 위치 설정**")
-    use_auto_location = st.checkbox("자동으로 현재 위치 가져오기 (IP 기반)", value=True, help="IP 주소 기반이므로 정확도가 낮을 수 있습니다.")
+    use_auto_location = st.checkbox("자동으로 현재 위치 가져오기", value=True, help="IP 주소 기반이므로 정확도가 낮을 수 있습니다.")
     
     lat = None
     lon = None
