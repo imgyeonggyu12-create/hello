@@ -14,6 +14,8 @@ import re # 정규 표현식을 위해 추가
 import requests
 import streamlit as st
 from PIL import Image
+from streamlit_geolocation import streamlit_geolocation
+
 
 # --- Secrets 로드 (Streamlit 환경 및 로컬 테스트 환경 모두에서 동작하도록 개선) ---
 def get_secret(key: str, default: str = "") -> str:
@@ -513,12 +515,11 @@ with st.sidebar:
     city_name = "알 수 없음"
 
     if use_auto_location:
-        auto_lat, auto_lon, auto_city = get_user_ip_geolocation()
-        if auto_lat and auto_lon:
-            lat = auto_lat
-            lon = auto_lon
-            city_name = auto_city or "자동 감지 위치"
-            st.info(f"자동 감지 위치: {city_name} (위도: {lat:.4f}, 경도: {lon:.4f})")
+        location = streamlit_geolocation()
+        if location:
+            lat = location['latitude']
+            lon = location['longitude']
+            st.info(f"브라우저 GPS로 감지된 위치 (위도: {lat}, 경도: {lon})")
         else:
             st.warning("자동 위치 감지 실패. 기본 위치를 사용하거나 수동으로 입력해주세요.")
             lat = 36.628956 # 청주 기본값
